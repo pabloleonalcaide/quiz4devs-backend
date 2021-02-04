@@ -1,4 +1,4 @@
-import { Answer } from './answer.model';
+import { Answer } from './Answer';
 export class Quiz {
   id: string;
   question: string;
@@ -6,11 +6,11 @@ export class Quiz {
   explanation: string;
   category: string;
 
-  constructor(){
+  constructor() {
     this.id = '';
     this.question = '';
     this.answers = new Array<Answer>();
     this.explanation = '';
-    this.category = ''
+    this.category = '';
   }
 }

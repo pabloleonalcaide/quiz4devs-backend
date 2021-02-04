@@ -1,8 +1,8 @@
-import { Request, Response } from "express";
+import { Request, Response } from 'express';
 
-import container from '../config/dependency-injection'
+import container from '../config/dependency-injection';
 import QuizFinder from '../../../Contexts/Backoffice/quizs/application/QuizFinder';
-import QuizSearcher from "../../../Contexts/Backoffice/quizs/application/QuizSearcher";
+import QuizSearcher from '../../../Contexts/Backoffice/quizs/application/QuizSearcher';
 
 class QuizController {
 

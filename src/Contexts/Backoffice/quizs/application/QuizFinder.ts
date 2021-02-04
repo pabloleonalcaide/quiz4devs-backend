@@ -1,7 +1,6 @@
-import { Quiz } from "../domain/Quiz";
+import { Quiz } from '../domain/Quiz';
 
-class QuizFinder{
-
+class QuizFinder {
   find(id: string): Quiz[] {
     // call to repository
     return new Array<Quiz>();
