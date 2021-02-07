@@ -1,10 +1,14 @@
-import QuizFinder from '../../../../Contexts/Backoffice/quizs/application/QuizFinder';
-import QuizSearcher from '../../../../Contexts/Backoffice/quizs/application/QuizSearcher';
+import QuizUpdater from '../../../../contexts/backoffice/Quiz/application/QuizUpdater';
+import QuizCreator from '../../../../contexts/backoffice/Quiz/application/QuizCreator';
+import QuizFinder from '../../../../contexts/backoffice/Quiz/application/QuizFinder';
+import QuizSearcher from '../../../../contexts/backoffice/Quiz/application/QuizSearcher';
 import { container } from './index';
 
 const registerProdServices = (): void => {
   container.register('backoffice.quiz_finder', QuizFinder);
   container.register('backoffice.quiz_searcher', QuizSearcher);
+  container.register('backoffice.quiz_creator', QuizCreator);
+  container.register('backoffice.quiz_updater', QuizUpdater);
 };
 
 export default registerProdServices;
