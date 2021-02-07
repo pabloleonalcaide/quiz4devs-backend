@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 
+import { container } from '../config/dependency-injection/index';
 import QuizUpdater from '../../../contexts/backoffice/Quiz/application/QuizUpdater';
 import GenericError from '../../../contexts/Shared/domain/GenericError';
 
@@ -7,7 +8,7 @@ class QuizPutController {
   private updater: QuizUpdater;
 
   constructor() {
-    this.updater = new QuizUpdater();
+    this.updater = new QuizUpdater(container.get('backoffice.quiz_repository'));
   }
 
   public update = async (req: Request, res: Response): Promise<Response> => {

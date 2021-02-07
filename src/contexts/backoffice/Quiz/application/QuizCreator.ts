@@ -1,8 +1,13 @@
 import { Quiz } from '../domain/Quiz';
 import { Answer } from '../domain/Answer';
+import QuizRepository from '../domain/QuizRepository';
 
 export default class QuizCreator {
-  constructor() {}
+  private repository: QuizRepository;
+
+  constructor(repository: QuizRepository) {
+    this.repository = repository;
+  }
 
   public create(
     id: string,

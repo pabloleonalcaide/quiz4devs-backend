@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 
+import { container } from '../config/dependency-injection/index';
 import QuizCreator from '../../../contexts/backoffice/Quiz/application/QuizCreator';
 import GenericError from '../../../contexts/Shared/domain/GenericError';
 
@@ -7,7 +8,7 @@ class QuizPostController {
   private creator: QuizCreator;
 
   constructor() {
-    this.creator = new QuizCreator();
+    this.creator = new QuizCreator(container.get('backoffice.quiz_repository'));
   }
 
   public create = async (req: Request, res: Response): Promise<Response> => {
