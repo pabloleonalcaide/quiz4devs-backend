@@ -7,9 +7,8 @@ class QuizFinder {
   constructor(repository: QuizRepository) {
     this.repository = repository;
   }
-  find(id: string): Quiz[] {
-    // call to repository
-    return new Array<Quiz>();
+  async find(id: string): Promise<Quiz> {
+    return await this.repository.find(id);
   }
 }
 

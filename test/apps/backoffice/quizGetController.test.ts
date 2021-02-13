@@ -14,11 +14,26 @@ describe('Quiz - Get resource', () => {
     await server.close();
   });
 
-  it('should return a Quiz', async () => {
-    const randomQuiz = random();
-
+  it('should return all Quizs', async () => {
     const response = await request(server).get('/quiz');
     expect(response.status).toEqual(200);
-    //    expect(response.body).toEqual(randomQuiz);
+  });
+
+  it('should return a Quiz', async () => {
+    const randomQuiz = random();
+    await request(server)
+      .post('/quiz')
+      .set('Accept', 'application/json')
+      .send({
+        id: randomQuiz.id,
+        question: randomQuiz.question,
+        answers: randomQuiz.answers,
+        explanation: randomQuiz.explanation,
+        category: randomQuiz.category,
+      });
+
+    const response = await request(server).get(`/quiz/${randomQuiz.id}`);
+
+    expect(response.status).toEqual(200);
   });
 });

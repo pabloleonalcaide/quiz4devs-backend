@@ -13,6 +13,7 @@ describe('Quiz - Create a Quiz', () => {
 
   it('should create a new Quiz', async () => {
     const randomQuiz = random();
+
     const response = await request(server)
       .post('/quiz')
       .set('Accept', 'application/json')
@@ -23,6 +24,7 @@ describe('Quiz - Create a Quiz', () => {
         explanation: randomQuiz.explanation,
         category: randomQuiz.category,
       });
+
     expect(response.status).toEqual(201);
   });
 });

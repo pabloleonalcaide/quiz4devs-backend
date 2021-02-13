@@ -15,7 +15,7 @@ To install the dependencies
 npm install
 ```
 
-## Running the Server
+## Running the Server
 
 Run the server on Dev mode (We use `nodemon` to allow the server refresh when code changes)
 
@@ -29,3 +29,6 @@ nodemon
 
 see [contributing](CONTRIBUTING.md), Pull Requests are welcome!
 
+## Greetings
+
+Thanks to [Jetbrains](https://jb.gg/OpenSource) for a 1-year License to work in this Open Source project

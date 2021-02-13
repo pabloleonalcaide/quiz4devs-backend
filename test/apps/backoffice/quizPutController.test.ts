@@ -16,9 +16,8 @@ describe('Quiz - Update resource', () => {
 
   it('should update an existing Quiz', async () => {
     const randomQuiz = random();
-    // TODO: create first
-    const response = await request(server)
-      .put(`/quiz/${randomQuiz.id}`)
+    await request(server)
+      .post('/quiz')
       .set('Accept', 'application/json')
       .send({
         id: randomQuiz.id,
@@ -27,6 +26,18 @@ describe('Quiz - Update resource', () => {
         explanation: randomQuiz.explanation,
         category: randomQuiz.category,
       });
+
+    const response = await request(server)
+      .put(`/quiz/${randomQuiz.id}`)
+      .set('Accept', 'application/json')
+      .send({
+        id: randomQuiz.id,
+        question: randomQuiz.question,
+        answers: randomQuiz.answers,
+        explanation: randomQuiz.explanation,
+        category: 'A different category',
+      });
+
     expect(response.status).toEqual(204);
   });
 });

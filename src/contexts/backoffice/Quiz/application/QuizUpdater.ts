@@ -8,13 +8,15 @@ export default class QuizUpdater {
   constructor(repository: QuizRepository) {
     this.repository = repository;
   }
-  public update(
+  public async update(
     id: string,
     question: string,
     answers: Answer[],
     explanation: string,
     category: string
-  ): Quiz {
-    return null;
+  ): Promise<Quiz> {
+    return await this.repository.update(
+      new Quiz(id,question,answers,explanation,category)
+      );
   }
 }

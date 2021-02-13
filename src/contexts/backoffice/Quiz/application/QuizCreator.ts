@@ -9,13 +9,15 @@ export default class QuizCreator {
     this.repository = repository;
   }
 
-  public create(
+  public async create(
     id: string,
     question: string,
     answers: Answer[],
     explanation: string,
     category: string
-  ): Quiz {
-    return new Quiz(id, question, answers, explanation, category);
+  ): Promise<Quiz> {
+    return await this.repository.save(
+      new Quiz(id, question, answers, explanation, category)
+      );
   }
 }
